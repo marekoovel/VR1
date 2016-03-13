@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Neljas</title>
+<style type="text/css">
+
+#picture{
+width:100%;
+position:fixed;
+bottom:0%;
+left:0%;
+}
+
+#outer-circle{
+   height: 200px;
+   width: 200px;
+   position: fixed;
+   left: 500px;
+   top: 400px;
+
+}
+
+.inner-circles{
+position: absolute;
+border-radius: 50%;
+}
+
+
+
+.inner-circles:nth-child(1) {
+    height:100%;
+	width:100%;
+	background-color:white;
+	outline: white;
+	left:0%;
+	top:0%;
+	
+}
+
+.inner-circles:nth-child(2) {
+    height:80%;
+	width:80%;
+	background-color:red;
+	outline: red;
+	left:10%;
+	top:10%;	
+}
+
+.inner-circles:nth-child(3) {
+    height:60%;
+	width:60%;
+	background-color:white;
+	outline: white;
+	left:20%;
+	top:20%;	
+}
+
+.inner-circles:nth-child(4) {
+    height:40%;
+	width:40%;
+	background-color:red;
+	outline: red;
+	left:30%;
+	top:30%;	
+}
+
+.inner-circles:nth-child(5) {
+    height:20%;
+	width:20%;
+	background-color:white;
+	outline: white;
+	left:40%;
+	top:40%;	
+}
+
+.inner-circles:nth-child(6) {
+    height:10%;
+	width:10%;
+	background-color:red;
+	outline: red;
+	left:45%;
+	top:45%;	
+}
+
+
+</style>
+</head>
+<body>
+
+<img id="picture" src="duck.png" alt="Duck" />
+<div id="outer-circle">
+	<div class="inner-circles">
+	</div>
+	<div class="inner-circles">
+	</div>
+	<div class="inner-circles">
+	</div>
+	<div class="inner-circles">
+	</div>
+	<div class="inner-circles">
+	</div>
+	<div class="inner-circles">
+	</div>
+</div>
+</body>
+</html>
