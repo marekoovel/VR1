@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Kodune Ülesanne</title>
+	<style type="text/css">
+	.active { background: skyblue; padding: 10px;}
+	</style>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js">
+	</script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		var muutuja = $("li").first();
+			muutuja.addClass("active");
+		$("#next").click(function(){
+		   muutuja.removeClass("active");
+		   if(muutuja.is(":last-child"))
+		   {
+				muutuja = $("li").first();
+				muutuja.addClass("active");
+		   
+		   }
+		   else
+		   {
+				muutuja = muutuja.next();
+				muutuja.addClass("active");
+		   }
+		});
+		$("#prev").click(function(){
+		   muutuja.removeClass("active");
+		   if(muutuja.is(":first-child"))
+		   {
+				muutuja = $("li").last();
+				muutuja.addClass("active");
+		   }
+		   else
+		   {
+				muutuja = muutuja.prev();
+				muutuja.addClass("active");
+		   }
+		});
+	});
+	</script>
+</head>
+<body>
+<button id="next">edasi</button>
+<button id="prev">tagasi</button>
+
+<ul>
+<li>esimene</li>
+<li>teine</li>
+<li>kolmas</li>
+<li>neljas</li>
+</ul>
+
+</body>
+</html>
