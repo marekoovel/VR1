@@ -59,12 +59,36 @@ function lopeta(){
 
 }
 
+function popim() {
+    // siia on vaja funktsionaalsust
+
+    global $connection;
+    $limit = 3;
+    $sql = 'SELECT Pilt, count FROM loomad__asjad ORDER BY count DESC LIMIT ?';
+    $stmt = mysqli_prepare($connection, $sql);
+    if (mysqli_error($connection)) {
+        echo mysqli_error($connection);
+        exit;
+    }
+    mysqli_stmt_bind_param($stmt, 'i', $limit);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $pilt, $count);
+
+    $rows = array();
+
+    while (mysqli_stmt_fetch($stmt)) {
+        $rows2[] = array(
+            'pilt' => $pilt,
+            'count' => $count,
+        );
+    }
+    mysqli_stmt_close($stmt);
+    return $rows2;
+    //echo $rows2;
+    print_r($rows2);
+}
 
 function hinda(){
-	// siia on vaja funktsionaalsust
-//    if (!isset($_SESSION['user'])) {
-//        header("Location: index.php?page=login");        
-//    }
          
     global $connection;
         
@@ -93,10 +117,6 @@ function hinda(){
 
 
 function loenda($pilt) {
-//    if (!isset($_SESSION['user'])) {
-//        header("Location: index.php?page=login");
-//    }
-
     global $connection;
     $sql = "SELECT Pilt, count FROM loomad__asjad WHERE Pilt = \"$pilt\"";
     $result = mysqli_query($connection, $sql);
@@ -133,20 +153,18 @@ function lisa(){
 			}else{
 				// kõik ok, laeme faili üles ja teeme kirje tabelisse
 				connect_db();
-				upload("pilt");
+				//upload("pilt");
 				if (file_exists("pildid/" .$_FILES["pilt"]["name"])) {
         // fail olemas ära uuesti lae, tagasta failinimi
+		            echo "aseta pilt1 uuesti";
 					echo $_FILES["pilt"]["name"] . " juba eksisteerib. ";
-					//echo $_SESSION['notices'];
 				} else {
         // kõik ok, aseta pilt
-				$query = "INSERT INTO loomad__asjad (Pilt) VALUES ('pildid/".$_FILES["pilt"]["name"].
+		        upload("pilt");
+				$query = "INSERT INTO loomad__asjad (Pilt) VALUES ('pildid/".$_FILES["pilt"]["name"]."')";
 				$result = mysqli_query($GLOBALS['connection'], $query) or die("$query - ".mysqli_error($GLOBALS['connection']));
-									"');";
-				}
-								
-				//echo $_FILES["pilt"]["name"];
-				header("refresh:3; url=index.php?page=hinda");
+				}		
+				header("refresh:3; url=index.php");
 			}// if
 		}else{
 			include_once('views/lisa.php');
@@ -178,6 +196,7 @@ function upload($name){
 			} else {
         // kõik ok, aseta pilt
 				move_uploaded_file($_FILES[$name]["tmp_name"], "pildid/" . $_FILES[$name]["name"]);
+				echo "aseta pilt2";
 				return "pildid/" .$_FILES[$name]["name"];
 			}
 		}

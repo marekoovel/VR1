@@ -1,0 +1,80 @@
+h1{
+	color:black;
+	font-family:calibri;
+	font-size:300%;
+	margin-bottom:10px;
+}
+
+
+body {
+	background: red;
+	margin:0px;
+}
+#wrap{
+	width: 800px;
+	background: white;
+	margin: auto;
+	overflow: auto;
+	min-height:600px;
+}
+#menu {
+	list-style: none;
+	background: Blue;
+	margin: 0px;
+	padding: 15px;
+	text-align: center;
+}
+#menu li, #menu a {
+	display: inline-block;
+}
+#menu a {
+	padding:5px 20px;
+	color: black;
+	text-decoration: none;
+	font-size:150%;
+}
+#menu a:hover {
+	color: Yellow;
+}
+#content {
+	padding:10px;
+}
+#login{
+	margin:auto;
+	width: 35%;	
+	margin-top:25%;
+}
+
+#top3{
+	text-align:center;
+}
+
+#valin{
+	width:20%;
+	height:50px;
+}
+
+#hindaLoomi{
+	text-align:center;
+}
+
+.top{
+	margin-left:20%;
+}
+
+.topPilt{
+	margin-left:35%;
+	height: 140px;
+}
+
+.meeldimisi{
+	margin-left:20%;
+	font-style:italic;
+	font-size:150%;
+}
+.hinda{
+	margin:20px;
+	float:left;
+	width:25%;
+	padding:10px;
+}

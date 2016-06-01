@@ -3,16 +3,18 @@
     <head>
         <meta charset="utf-8"/>
         <title>HINDA LOOMI</title>
+        <link rel="stylesheet" type="text/css" href="stiil.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+		<script src="hindamine.js"></script>
     </head>
     <body>
-        <h1 align="center">HINDA LOOMI</h1>
+        <h1 id="hindaLoomi">HINDA LOOMI</h1>
         <div id="wrap">
             <ul id="menu">
                 <li><a href="?">POPIMAD</a></li>
 
                 <?php if(isset($_SESSION['user'])): ?>
                 <li><a href="?page=lisa_pilt">LISA PILT</a></li>
-                <li><a href="?page=hinda">HINDA</a></li>
                 <li><a href="?page=logout">LOGI VÄLJA</a></li>
                 <?php else: ?>
                 <li><a href="?page=hinda">HINDA</a></li>

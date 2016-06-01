@@ -15,6 +15,9 @@ include_once('views/head.html');
 //echo $page;
 switch ($page) {
 
+    case "parimad":
+        popim();
+        break;
 
     case "login":
         login();
@@ -26,14 +29,7 @@ switch ($page) {
 
     case "hinda":
         hinda();
-		
-		if(isset($_COOKIE[session_name()])){
-			setcookie(session_name(), '', time()+10, '/');
-			require("views/tulemus.php");
-		}else{
-			$_SESSION=array();
-			require("views/hinda.php");
-		}
+		require("views/hinda.php");
         break;
 
     case "tulemus":
@@ -46,8 +42,7 @@ switch ($page) {
         break;
 
     case "logout":
-        logout();
-        //print_r("$page");    
+        logout(); 
         break;
 
     default:
